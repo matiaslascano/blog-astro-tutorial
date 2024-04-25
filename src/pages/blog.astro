@@ -1,8 +1,9 @@
 ---
-import BlogSpot from "../components/BlogSpot.astro";
+import { getCollection } from "astro:content";
+import BlogPost from "../components/BlogSpot.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
-const allPosts = await Astro.glob("../pages/posts/*.md");
+const allPosts = await getCollection("posts");
 const pageTitle = "Mi blog de Astro aprendizaje";
 ---
 
@@ -12,7 +13,7 @@ const pageTitle = "Mi blog de Astro aprendizaje";
   <ul>
     {
       allPosts.map((post) => (
-        <BlogSpot url={post.url} title={post.frontmatter.title} />
+        <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
       ))
     }
   </ul>
