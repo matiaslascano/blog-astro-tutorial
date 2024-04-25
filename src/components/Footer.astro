@@ -1,0 +1,22 @@
+---
+const platform = "github";
+const username = "matiaslascano";
+import Social from "./Social.astro";
+---
+<footer>
+  <p>
+    ¡Más información sobre mis proyectos en <a
+      href={`https://www.${platform}.com/${username}`}>{platform}</a
+    >!
+    <Social platform="instagram" username="matias_lascano84" />
+    <Social platform="youtube" username="@MatTop5" />
+  </p>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
